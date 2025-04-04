@@ -1,10 +1,20 @@
-import SkipSelector from "@/components/SkipSelector";
+import type { Route } from "./+types/home";
+import { Welcome } from "../welcome/welcome";
+import SkipSelector from "../components/SkipSelector"; // <- Importing the component
+import "../components/SkipSelector.css"; // <- Importing the CSS styles
+
+export function meta({}: Route.MetaArgs) {
+  return [
+    { title: "New React Router App" },
+    { name: "description", content: "Welcome to React Router!" },
+  ];
+}
 
 export default function Home() {
   return (
-    <main className="container mx-auto p-6">
-      <h1 className="text-3xl font-bold mb-6">Choose Your Skip Size</h1>
-      <SkipSelector />
-    </main>
+    <>
+      <Welcome />
+      <SkipSelector /> {/* <- Rendering the component */}
+    </>
   );
 }
