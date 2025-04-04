@@ -1,7 +1,6 @@
 import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-import SkipSelector from "../components/SkipSelector"; // <- Importing the component
-import "../components/SkipSelector.css"; // <- Importing the CSS styles
+import SkipSelector from "../components/SkipSelector"; 
+import "../components/SkipSelector.css"; 
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -11,10 +10,5 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Home() {
-  return (
-    <>
-      <Welcome />
-      <SkipSelector /> {/* <- Rendering the component */}
-    </>
-  );
+  return <SkipSelector />;
 }
