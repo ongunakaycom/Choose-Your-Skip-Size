@@ -1,7 +1,9 @@
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import "./SkipSelector.css"; // Custom styles
+import "./SkipSelector.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 const cardData = [
   { icon: "fa-crown", title: "Premium Card", desc: "Experience the next level of premium features with our advanced hover animations and modern design." },
