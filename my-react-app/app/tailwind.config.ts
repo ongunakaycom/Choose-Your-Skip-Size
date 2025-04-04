@@ -1,15 +1,13 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ["./app/**/*.{ts,tsx,js,jsx}"], // Add this to include your files
+  content: [
+    './src/**/*.{html,ts,tsx}',
+  ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
-};
+}
 
-export default config;
+export default config
