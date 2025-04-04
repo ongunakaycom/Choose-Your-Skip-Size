@@ -27,5 +27,3 @@
 3. **UI/UX Improvements**
    - Clear pricing display
    - Visual indicators for road placement
-
-## Project Structure
