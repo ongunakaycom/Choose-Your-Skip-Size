@@ -18,7 +18,7 @@
 ## Key Features
 1. **Dynamic Skip Cards**
    - Fetches real-time skip data (size, price, hire period)
-   - Hover animations for better interactivity
+   - Hover animations for better interactivity and user experience
 
 2. **Responsive Design**
    - Mobile-first layout
