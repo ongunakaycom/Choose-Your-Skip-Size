@@ -1,13 +1,5 @@
-import type { Route } from "./+types/home";
-import SkipSelector from "../components/SkipSelector"; 
-import "../components/SkipSelector.css"; 
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import SkipSelector from "../components/SkipSelector"; // Import component
+import "../components/SkipSelector.css"; // Import CSS
 
 export default function Home() {
   return <SkipSelector />;
