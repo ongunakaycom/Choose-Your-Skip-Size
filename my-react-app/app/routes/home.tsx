@@ -1,13 +1,10 @@
-import type { Route } from "./+types/home";
-import { Welcome } from "../welcome/welcome";
-
-export function meta({}: Route.MetaArgs) {
-  return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
-  ];
-}
+import SkipSelector from "@/components/SkipSelector";
 
 export default function Home() {
-  return <Welcome />;
+  return (
+    <main className="container mx-auto p-6">
+      <h1 className="text-3xl font-bold mb-6">Choose Your Skip Size</h1>
+      <SkipSelector />
+    </main>
+  );
 }
