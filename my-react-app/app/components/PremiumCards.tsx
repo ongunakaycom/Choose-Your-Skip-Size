@@ -1,61 +1,33 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "./PremiumCards.css";
 
-const skipData = [
-  {
-    id: 17933,
-    size: 4,
-    hire_period_days: 14,
-    transport_cost: null,
-    per_tonne_cost: null,
-    price_before_vat: 277.95,
-    vat: 20,
-    postcode: "NR32",
-    allowed_on_road: true,
-    allows_heavy_waste: true,
-  },
-  {
-    id: 17934,
-    size: 6,
-    hire_period_days: 14,
-    transport_cost: null,
-    per_tonne_cost: null,
-    price_before_vat: 305.15,
-    vat: 20,
-    postcode: "NR32",
-    allowed_on_road: true,
-    allows_heavy_waste: true,
-  },
-  {
-    id: 17935,
-    size: 8,
-    hire_period_days: 14,
-    transport_cost: null,
-    per_tonne_cost: null,
-    price_before_vat: 374.85,
-    vat: 20,
-    postcode: "NR32",
-    allowed_on_road: true,
-    allows_heavy_waste: true,
-  },
-  {
-    id: 17936,
-    size: 10,
-    hire_period_days: 14,
-    transport_cost: null,
-    per_tonne_cost: null,
-    price_before_vat: 399.5,
-    vat: 20,
-    postcode: "NR32",
-    allowed_on_road: false,
-    allows_heavy_waste: false,
-  },
-];
-
 const PremiumCards = () => {
+  const [skipData, setSkipData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchSkipData = async () => {
+      try {
+        const response = await fetch(
+          "https://app.wewantwaste.co.uk/api/skips/by-location?postcode=NR32&area=Lowestoft"
+        );
+        if (!response.ok) throw new Error("Failed to fetch skip data");
+        const data = await response.json();
+        setSkipData(data);
+      } catch (err: any) {
+        setError(err.message || "Unknown error");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSkipData();
+  }, []);
+
   useEffect(() => {
     const cleanUpFunctions: (() => void)[] = [];
 
@@ -91,7 +63,6 @@ const PremiumCards = () => {
 
   return (
     <Container className="premium-container py-5">
-
       <div className="text-center mb-4">
         <div className="step-progress mb-3">
           <span>Postcode</span>
@@ -110,7 +81,13 @@ const PremiumCards = () => {
         <p className="choose-subtext">Select the skip size that best suits your needs</p>
       </div>
 
+      {loading && <p className="text-center">Loading skips...</p>}
+      {error && <p className="text-center text-danger">Error: {error}</p>}
+
       <Row className="g-4">
+        {skipData.length === 0 && !loading && !error && (
+          <p className="text-center">No skips available for this area.</p>
+        )}
         {skipData.map((skip) => (
           <Col key={skip.id} xs={12} md={6} lg={4}>
             <Card className="premium-card h-100">
