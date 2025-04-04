@@ -1,87 +1,44 @@
-# Welcome to React Router!
+Summary
+The Choose-Your-Skip-Size project is a front-end challenge where the goal is to redesign the skip selection page for a waste management service. Users can select a skip based on the size that suits their needs. This web application displays available skip sizes, hire periods, prices, and additional information while ensuring an engaging and responsive user interface.
 
-A modern, production-ready template for building full-stack React applications using React Router.
+The project includes a React application with responsive UI, styled using Bootstrap and custom CSS. The skip options are dynamically fetched from an API based on the user's location.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+My Approach to Design & Development
+1. UI/UX Design
+The design focuses on providing a clean and user-friendly experience. Users can easily browse different skip options and see detailed information on each, such as price, hire period, and whether the skip can be placed on the road. I've used React with Bootstrap for layout and styling, focusing on making the interface mobile-friendly and responsive.
 
-## Features
+2. Component Structure
+The main component, PremiumCards, is responsible for fetching skip data from the API and rendering it as interactive cards. Each skip card displays the skip size, price (excl. VAT), hire period, and its suitability for different waste types. On hover, the cards feature a slight tilt effect for better interactivity.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+3. Fetching Data
+Skip data is dynamically fetched from the following API:
 
-## Getting Started
+Skip Data API
 
-### Installation
+The API provides information such as skip sizes, hire periods, prices, and other relevant details.
 
-Install the dependencies:
+4. React Features
+useEffect: Used to handle side-effects, such as initializing hover effects for cards.
 
-```bash
-npm install
-```
+useState: Manages local state within the components (e.g., selected skip).
 
-### Development
+React Router: Set up for routing, allowing for easy navigation across the app (though currently not extensively used in this project).
 
-Start the development server with HMR:
+Bootstrap: For responsiveness and quick layout design.
 
-```bash
-npm run dev
-```
+Custom CSS: Custom styles for animations and card hover effects.
 
-Your application will be available at `http://localhost:5173`.
+Tools/Technologies Used
+React: For building the user interface.
 
-## Building for Production
+React Router: For routing (though not fully utilized in this challenge, it's set up for future scalability).
 
-Create a production build:
+Bootstrap: For layout and responsive design.
 
-```bash
-npm run build
-```
+CSS: Custom styling, including hover effects and animations.
 
-## Deployment
+Font Awesome: For icons (e.g., skip icon).
 
-### Docker Deployment
+Vite: For fast development builds.
 
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
-
----
-
-Built with ❤️ using React Router.
+Node.js & npm: For managing dependencies.
